@@ -63,8 +63,8 @@
 
         <div class="sidebar-footer">
           <button id="healthCheckButton" class="health-button">System Health Check</button>
-          <button class="utility-link">Documentation</button>
-          <button class="utility-link">Support</button>
+          <button id="docsButton" class="utility-link">Documentation</button>
+          <button id="supportButton" class="utility-link">Support</button>
         </div>
       </aside>
 
@@ -97,6 +97,45 @@
           </button>
         </div>
         <div id="healthModalContent" class="modal-content"></div>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+      <div class="modal-backdrop" data-close-settings="true"></div>
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div>
+            <p class="page-eyebrow">Configuration</p>
+            <h2 id="settingsModalTitle">Settings</h2>
+          </div>
+          <button id="closeSettingsButton" class="icon-button modal-close" aria-label="Close settings">×</button>
+        </div>
+        <div id="settingsModalContent" class="modal-content"></div>
+      </div>
+    </div>
+
+    <div id="notificationsPanel" class="notifications-panel hidden" role="dialog" aria-modal="true" aria-label="Notifications">
+      <div id="notificationsPanelContent"></div>
+    </div>
+    <div id="notificationsBackdrop" class="notifications-backdrop hidden"></div>
+
+    <div id="infoModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+      <div class="modal-backdrop" data-close-info="true"></div>
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div>
+            <p id="infoModalEyebrow" class="page-eyebrow"></p>
+            <h2 id="infoModalTitle"></h2>
+          </div>
+          <button id="closeInfoButton" class="icon-button modal-close" aria-label="Close">×</button>
+        </div>
+        <div id="infoModalContent" class="modal-content"></div>
+      </div>
+    </div>
+
+    <div id="welcomeModal" class="modal welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcomeModalTitle">
+      <div class="modal-panel welcome-panel">
+        <div id="welcomeModalContent"></div>
       </div>
     </div>
 
