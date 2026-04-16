@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sovereign Observer OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="mobileNavToggle" class="icon-button mobile-only" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <p class="brand">Sovereign Observer OS</p>
+          </div>
+          <nav class="top-links">
+            <button class="top-link active" data-screen="coordination">Intelligence</button>
+            <button class="top-link" data-screen="policy">Policy</button>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <label class="search-shell">
+            <span class="search-icon"></span>
+            <input
+              id="globalSearch"
+              type="search"
+              placeholder="Global Search..."
+              autocomplete="off"
+            />
+          </label>
+          <button class="icon-button" aria-label="Notifications">
+            <span class="dot-icon bell"></span>
+          </button>
+          <button class="icon-button" aria-label="Settings">
+            <span class="dot-icon gear"></span>
+          </button>
+          <div class="avatar">AI</div>
+        </div>
+      </header>
+
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-context">
+          <div class="context-icon">▣</div>
+          <div>
+            <p class="context-kicker">Recursive Level 0</p>
+            <p class="context-subtitle">Global Context</p>
+          </div>
+        </div>
+
+        <nav id="sideNav" class="side-nav"></nav>
+
+        <div class="sidebar-footer">
+          <button id="healthCheckButton" class="health-button">System Health Check</button>
+          <button class="utility-link">Documentation</button>
+          <button class="utility-link">Support</button>
+        </div>
+      </aside>
+
+      <main class="main-canvas">
+        <section class="page-header">
+          <div>
+            <p id="headerEyebrow" class="page-eyebrow"></p>
+            <h1 id="pageTitle" class="page-title"></h1>
+            <p id="pageDescription" class="page-description"></p>
+          </div>
+
+          <div id="headerMetrics" class="header-metrics"></div>
+        </section>
+
+        <section id="searchResults" class="search-results hidden"></section>
+        <section id="pageContent" class="page-content"></section>
+      </main>
+    </div>
+
+    <div id="healthModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="healthModalTitle">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div>
+            <p class="page-eyebrow">System Diagnostic</p>
+            <h2 id="healthModalTitle">Recursive Health Check</h2>
+          </div>
+          <button id="closeModalButton" class="icon-button modal-close" aria-label="Close dialog">
+            ×
+          </button>
+        </div>
+        <div id="healthModalContent" class="modal-content"></div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
