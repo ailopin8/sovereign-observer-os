@@ -1664,7 +1664,7 @@ Viability Index: 94.2%</pre>
       </article>
       <article class="diagnostic-card">
         <h3>API Key</h3>
-        <p>${appState.apiKey ? "✓ An API key is configured. It is stored locally in your browser." : "No API key is configured. Open Settings (⚙) to add one."}</p>
+        <p>${appState.apiKey ? "✓ An API key is active for this session. It is held in-memory only and will be cleared when you close this tab." : "No API key is configured. Open Settings (⚙) to add one for this session."}</p>
       </article>
       <article class="diagnostic-card">
         <h3>Policy Authenticator</h3>
@@ -1887,8 +1887,8 @@ closeInfoButton.addEventListener("click", closeInfoModal);
 
 notificationsBackdrop.addEventListener("click", closeNotificationsPanel);
 
-document.querySelector("[aria-label='Notifications']").addEventListener("click", openNotificationsPanel);
-document.querySelector("[aria-label='Settings']").addEventListener("click", openSettingsModal);
+document.querySelector("[aria-label='Notifications']")?.addEventListener("click", openNotificationsPanel);
+document.querySelector("[aria-label='Settings']")?.addEventListener("click", openSettingsModal);
 
 document.querySelector("#docsButton").addEventListener("click", openDocumentationModal);
 document.querySelector("#supportButton").addEventListener("click", openSupportModal);
