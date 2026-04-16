@@ -241,7 +241,7 @@ const designState = {
 };
 
 const appState = {
-  apiKey: localStorage.getItem("sov_api_key") || "",
+  apiKey: "",
   hasSeenWelcome: localStorage.getItem("sov_welcomed") === "true",
   syncStatus: "idle",
 };
@@ -632,9 +632,9 @@ function renderOperations() {
             <p class="measure-note">processed units per hour</p>
           </article>
           <article class="mini-stat">
-            <p class="mini-label">Delta vs. last cycle</p>
+            <p class="mini-label">Change vs. Prior Cycle</p>
             <p class="mini-value" style="color: var(--tertiary);">${operationsData.logistics.delta}</p>
-            <p class="measure-note">change in throughput rate</p>
+            <p class="measure-note">throughput growth rate</p>
           </article>
         </div>
       </section>
@@ -727,7 +727,7 @@ function renderCoordination() {
             <div style="height: 5rem; display:grid; place-items:center; color: var(--tertiary); font-family:'Space Grotesk', sans-serif;">
               ~~~ ∿ ~~~
             </div>
-            <p class="tiny-label" style="color: var(--tertiary);">Damping Ratio: 0.84</p>
+            <p class="tiny-label" style="color: var(--tertiary);">Damping Ratio: 0.84 <span style="text-transform:none; letter-spacing:0;">(mild oscillation; 1.0 = ideal)</span></p>
           </article>
         </div>
         <div class="audit-list" style="margin-top: 1rem;">
@@ -1544,7 +1544,7 @@ function openSettingsModal() {
   settingsModalContent.innerHTML = `
     <article class="diagnostic-card">
       <h3>AI API Key</h3>
-      <p style="margin-bottom: 0.75rem;">Paste your OpenAI API key here to enable AI-enhanced schema generation. Without a key the built-in rule-based generator is used — it works fully offline. Your key is stored only in your browser's local storage and is never sent anywhere except directly to the OpenAI API.</p>
+      <p style="margin-bottom: 0.75rem;">Paste your OpenAI API key here to enable AI-enhanced schema generation. Without a key the built-in rule-based generator is used — it works fully offline. Your key is held <strong>in-memory only</strong> for this browser session and is never sent anywhere except directly to the OpenAI API. It is cleared when you close this tab.</p>
       <div class="api-key-field">
         <input id="apiKeyInput" type="password" class="prompt-input" style="min-height:unset; padding: 0.75rem 1rem;" placeholder="sk-…" value="${escapeHtml(appState.apiKey)}" autocomplete="off" />
         <button id="toggleApiKeyVisibility" class="ghost-button" style="white-space:nowrap;">Show</button>
@@ -1553,7 +1553,7 @@ function openSettingsModal() {
         <button id="saveApiKeyButton" class="cta-button">Save Key</button>
         <button id="clearApiKeyButton" class="ghost-button">Clear Key</button>
       </div>
-      <p id="apiKeyStatus" class="measure-note" style="margin-top:0.5rem;">${appState.apiKey ? "✓ Key is stored" : "No key stored"}</p>
+      <p id="apiKeyStatus" class="measure-note" style="margin-top:0.5rem;">${appState.apiKey ? "✓ Key active for this session" : "No key entered — built-in generator will be used"}</p>
     </article>
     <article class="diagnostic-card">
       <h3>About This App</h3>
@@ -1579,15 +1579,13 @@ function wireSettingsModal() {
 
   saveButton?.addEventListener("click", () => {
     appState.apiKey = apiKeyInput.value.trim();
-    localStorage.setItem("sov_api_key", appState.apiKey);
-    statusLabel.textContent = appState.apiKey ? "✓ Key saved" : "No key stored";
+    statusLabel.textContent = appState.apiKey ? "✓ Key active for this session" : "No key entered";
   });
 
   clearButton?.addEventListener("click", () => {
     appState.apiKey = "";
     apiKeyInput.value = "";
-    localStorage.removeItem("sov_api_key");
-    statusLabel.textContent = "Key cleared";
+    statusLabel.textContent = "Key cleared for this session";
   });
 }
 
@@ -1727,7 +1725,7 @@ function openDocumentationModal() {
         <li><strong>TFLOPS</strong> — Trillion floating-point operations per second (raw compute throughput).</li>
         <li><strong>OPS/S</strong> — Operations per second (task throughput of a processing unit).</li>
         <li><strong>Hz</strong> — Hertz (cycles per second; used here for conflict resolution frequency).</li>
-        <li><strong>Damping Ratio</strong> — 1.0 = critically damped (no oscillation); &lt; 1 = mild oscillation.</li>
+        <li><strong>Damping Ratio</strong> — 1.0 = critically damped (no oscillation); &lt; 1 = mild oscillation; &gt; 1 = overdamped (slow return to equilibrium).</li>
         <li><strong>Viability Index</strong> — 0–100% composite health score across all five systems.</li>
         <li><strong>Latent Demand</strong> — Unmet workload queued and waiting. High values (&gt; 5%) flag bottlenecks.</li>
         <li><strong>Horizon Confidence</strong> — Statistical confidence in the system's environmental projections.</li>
@@ -1783,16 +1781,16 @@ function renderWelcomeScreen() {
 
       <article class="diagnostic-card">
         <h3>🔑 API Key <span class="badge tertiary" style="vertical-align:middle;">Optional</span></h3>
-        <p>To enable AI-enhanced schema generation, open <strong>Settings</strong> (click the ⚙ icon in the top-right) and paste your OpenAI API key. Your key is stored only in your browser — never on a server.</p>
+        <p>To enable AI-enhanced schema generation, paste your OpenAI API key below. Your key is held <strong>in-memory only</strong> for this session — it is never stored on disk or sent anywhere except directly to the OpenAI API. You can also set it later via the <strong>⚙ Settings</strong> icon.</p>
         <div class="api-key-field" style="margin-top: 0.75rem;">
           <input id="welcomeApiKeyInput" type="password" class="prompt-input" style="min-height:unset; padding: 0.75rem 1rem;" placeholder="sk-… (optional)" value="${escapeHtml(appState.apiKey)}" autocomplete="off" />
           <button id="welcomeToggleKey" class="ghost-button" style="white-space:nowrap;">Show</button>
         </div>
         <div class="split-actions" style="margin-top: 0.5rem;">
-          <button id="welcomeSaveKey" class="soft-button">Save Key</button>
+          <button id="welcomeSaveKey" class="soft-button">Use This Key</button>
           <button id="welcomeClearKey" class="ghost-button">Clear</button>
         </div>
-        <p id="welcomeKeyStatus" class="measure-note" style="margin-top:0.4rem;">${appState.apiKey ? "✓ Key is stored" : "No key stored — built-in generator will be used"}</p>
+        <p id="welcomeKeyStatus" class="measure-note" style="margin-top:0.4rem;">${appState.apiKey ? "✓ Key active for this session" : "No key entered — built-in generator will be used"}</p>
       </article>
 
       <article class="diagnostic-card">
@@ -1801,7 +1799,7 @@ function renderWelcomeScreen() {
           <li><strong>TFLOPS</strong> — trillion floating-point ops/sec (raw compute power)</li>
           <li><strong>OPS/S</strong> — tasks completed per second</li>
           <li><strong>Hz</strong> — events per second (here: conflict resolution rate)</li>
-          <li><strong>Damping Ratio</strong> — 1.0 = no oscillation; &lt;1 = some oscillation</li>
+          <li><strong>Damping Ratio</strong> — 1.0 = ideal (no oscillation); &lt;1 = mild oscillation; &gt;1 = overdamped</li>
           <li><strong>Viability Index</strong> — 0–100% overall organisational health</li>
           <li><strong>Latent Demand</strong> — queued unmet workload; &gt;5% = bottleneck</li>
         </ul>
@@ -1833,14 +1831,12 @@ function wireWelcomeModal() {
 
   saveBtn?.addEventListener("click", () => {
     appState.apiKey = keyInput.value.trim();
-    localStorage.setItem("sov_api_key", appState.apiKey);
-    statusLabel.textContent = appState.apiKey ? "✓ Key saved" : "No key stored";
+    statusLabel.textContent = appState.apiKey ? "✓ Key active for this session" : "No key entered";
   });
 
   clearBtn?.addEventListener("click", () => {
     appState.apiKey = "";
     keyInput.value = "";
-    localStorage.removeItem("sov_api_key");
     statusLabel.textContent = "Key cleared — built-in generator will be used";
   });
 
