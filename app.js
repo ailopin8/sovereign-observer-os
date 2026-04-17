@@ -887,7 +887,7 @@ function renderPolicy() {
       </section>
 
       <section class="policy-footer" style="grid-column: span 12;">
-        <div>System Time · ${new Date().toISOString().replace("T", " ").slice(0, 19)}</div>
+        <div>System Time · ${formatSystemTime()}</div>
         <div style="color: var(--secondary);">Node Status · Synchronized</div>
         <div>Policy Authenticator · Sig 0xBF22...DE81</div>
       </section>
@@ -1010,6 +1010,10 @@ function renderPage() {
   renderHeader();
   pageContent.innerHTML = renderScreenContent();
   attachScreenInteractions();
+}
+
+function formatSystemTime() {
+  return new Date().toISOString().replace("T", " ").slice(0, 19);
 }
 
 function escapeHtml(value) {
@@ -1911,7 +1915,7 @@ document.addEventListener("keydown", (event) => {
     sidebar.classList.remove("open");
   }
 
-  if ((event.key === "Enter" || event.key === " ") && event.target.matches(".search-result-link[data-screen]")) {
+  if (event.key === "Enter" && event.target.matches(".search-result-link[data-screen]")) {
     event.preventDefault();
     currentScreen = event.target.dataset.screen;
     globalSearch.value = "";
