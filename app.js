@@ -535,7 +535,7 @@ function renderPolicy() {
       </section>
 
       <section class="policy-footer" style="grid-column: span 12;">
-        <div>System Time · 2024.11.23 09:42:01</div>
+        <div>System Time · ${formatSystemTime()}</div>
         <div style="color: var(--secondary);">Node Status · Synchronized</div>
         <div>Policy Authenticator · Sig 0xBF22...DE81</div>
       </section>
@@ -557,6 +557,10 @@ function renderPage() {
   renderHeader();
   pageContent.innerHTML = renderScreenContent();
   attachScreenInteractions();
+}
+
+function formatSystemTime() {
+  return new Date().toISOString().replace("T", " ").slice(0, 19);
 }
 
 function escapeHtml(value) {
@@ -1056,8 +1060,11 @@ function renderSearchResults(query) {
           ? matches
               .map(
                 (match) => `
-                  <article class="search-result">
-                    <p class="search-result-type">${match.type} · ${screens[match.screen].navLabel}</p>
+                  <article class="search-result search-result-link" data-screen="${match.screen}" role="button" tabindex="0" title="Go to ${screens[match.screen].navLabel}">
+                    <div class="search-result-header">
+                      <p class="search-result-type">${match.type} · ${screens[match.screen].navLabel}</p>
+                      <span class="search-result-go">Go →</span>
+                    </div>
                     <p class="search-result-title">${match.title}</p>
                     <p class="search-result-copy">${match.copy}</p>
                   </article>
@@ -1349,6 +1356,8 @@ document.addEventListener("click", (event) => {
   const navButton = event.target.closest("[data-screen]");
   if (navButton) {
     currentScreen = navButton.dataset.screen;
+    globalSearch.value = "";
+    renderSearchResults("");
     renderPage();
     if (window.innerWidth <= 920) {
       sidebar.classList.remove("open");
@@ -1402,6 +1411,14 @@ document.addEventListener("keydown", (event) => {
     closeInfoModal();
     closeNotificationsPanel();
     sidebar.classList.remove("open");
+  }
+
+  if (event.key === "Enter" && event.target.matches(".search-result-link[data-screen]")) {
+    event.preventDefault();
+    currentScreen = event.target.dataset.screen;
+    globalSearch.value = "";
+    renderSearchResults("");
+    renderPage();
   }
 });
 
