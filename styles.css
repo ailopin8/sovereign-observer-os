@@ -492,6 +492,35 @@ textarea {
   border-radius: var(--radius-md);
 }
 
+.search-result-link {
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.search-result-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.search-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-result-go {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  transition: opacity 180ms ease;
+}
+
+.search-result-link:hover .search-result-go {
+  opacity: 1;
+}
+
 .search-result-type {
   margin: 0 0 0.35rem;
   font-size: 0.64rem;
