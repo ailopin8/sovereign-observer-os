@@ -70,6 +70,30 @@ const screens = {
       { label: "Viability Index", value: "94.2%", tone: "primary" },
     ],
   },
+  repositories: {
+    navLabel: "Repositories",
+    navIcon: "⊞",
+    headerEyebrow: "Source Registry",
+    title: "Repository Catalogue",
+    description:
+      "A centralized registry of code repositories, agent packages, and data sources connected to this recursive system.",
+    metrics: [
+      { label: "Active Repos", value: "14", tone: "secondary" },
+      { label: "Last Sync", value: "< 1 min", tone: "primary" },
+    ],
+  },
+  updates: {
+    navLabel: "Updates",
+    navIcon: "↑",
+    headerEyebrow: "Change Log",
+    title: "System Updates",
+    description:
+      "A chronological record of deployments, configuration changes, and system-level events across all recursive layers.",
+    metrics: [
+      { label: "Latest Build", value: "v2.4.1", tone: "secondary" },
+      { label: "Deploy Status", value: "Stable", tone: "primary" },
+    ],
+  },
 };
 
 const overviewData = {
@@ -231,6 +255,122 @@ const intelligenceData = {
   signals: [
     { title: "Weak Signal Detected", copy: "Recruitment pressure rising in adjacent ecosystems." },
     { title: "Narrative Drift", copy: "External sentiment diverging from internal optimization assumptions." },
+  ],
+};
+
+const repositoriesData = {
+  repos: [
+    {
+      name: "sovereign-observer-os",
+      description: "Core dashboard and organisation design tool built on the Viable System Model.",
+      language: "JavaScript",
+      status: "Active",
+      tone: "secondary",
+      branch: "main",
+      lastCommit: "< 1 min ago",
+    },
+    {
+      name: "vsm-schema-engine",
+      description: "Rule-based and AI-enhanced schema generator for recursive agent organisations.",
+      language: "JavaScript",
+      status: "Active",
+      tone: "secondary",
+      branch: "main",
+      lastCommit: "2 h ago",
+    },
+    {
+      name: "recursive-unit-runner",
+      description: "Execution runtime for autonomous recursive operational units.",
+      language: "Python",
+      status: "Beta",
+      tone: "tertiary",
+      branch: "dev",
+      lastCommit: "1 d ago",
+    },
+    {
+      name: "coordination-daemon",
+      description: "System 2 oscillation-damping service for inter-unit conflict resolution.",
+      language: "Go",
+      status: "Stable",
+      tone: "primary",
+      branch: "main",
+      lastCommit: "3 d ago",
+    },
+    {
+      name: "intelligence-scanner",
+      description: "Environmental signal scanning and weak-signal detection for System 4.",
+      language: "Python",
+      status: "Active",
+      tone: "secondary",
+      branch: "main",
+      lastCommit: "6 h ago",
+    },
+  ],
+  packages: [
+    { name: "@sov/vsm-core", version: "2.4.1", registry: "npm", status: "Latest", tone: "secondary" },
+    { name: "@sov/schema-types", version: "1.9.0", registry: "npm", status: "Latest", tone: "secondary" },
+    { name: "sov-runner", version: "0.8.3", registry: "PyPI", status: "Pre-release", tone: "tertiary" },
+  ],
+};
+
+const updatesData = {
+  releases: [
+    {
+      version: "v2.4.1",
+      date: "2024-11-23",
+      label: "Patch",
+      tone: "secondary",
+      changes: [
+        "Added API key in-memory session support via Settings modal and Welcome screen.",
+        "Wired Bell, Gear, Manage Cluster, Export Data, Re-Sync All, and Full Node Diagnostics buttons.",
+        "Added measurement tooltips and subtext labels to all header metric cards.",
+        "Fixed damping ratio completeness display and delta column label on Operations screen.",
+      ],
+    },
+    {
+      version: "v2.4.0",
+      date: "2024-11-20",
+      label: "Minor",
+      tone: "primary",
+      changes: [
+        "Introduced Welcome screen modal with navigation guide, schema generator tutorial, and measurements glossary.",
+        "Added notifications panel with recent audit events.",
+        "Expanded health modal with full five-system diagnostic breakdown.",
+      ],
+    },
+    {
+      version: "v2.3.0",
+      date: "2024-11-10",
+      label: "Minor",
+      tone: "primary",
+      changes: [
+        "Launched recursive unit generation with parent-child delegation and peer coordination.",
+        "Added causal and systemic connection graph output to schema generator.",
+        "Introduced Global Search surface across nodes, signals, and directives.",
+      ],
+    },
+    {
+      version: "v2.2.0",
+      date: "2024-10-28",
+      label: "Minor",
+      tone: "primary",
+      changes: [
+        "Policy screen with constitutional directives, viability scorecards, and horizon planning.",
+        "Intelligence screen with market pulse, risk assessment, and weak signal board.",
+        "Temporal synchronization timeline added to Coordination screen.",
+      ],
+    },
+    {
+      version: "v2.0.0",
+      date: "2024-10-01",
+      label: "Major",
+      tone: "tertiary",
+      changes: [
+        "Initial public release of Sovereign Observer OS.",
+        "Full five-system VSM dashboard: Operations, Coordination, Control, Intelligence, Policy.",
+        "Natural-language schema generator with domain detection and autonomy inference.",
+      ],
+    },
   ],
 };
 
@@ -988,6 +1128,92 @@ function renderIntelligence() {
   `;
 }
 
+function renderRepositories() {
+  return `
+    <div class="grid cols-12">
+      <section class="card" style="grid-column: span 12;">
+        <div class="info-row">
+          <div>
+            <p class="card-kicker">Source Control</p>
+            <h2 class="card-title">Code Repositories</h2>
+          </div>
+          <span class="badge secondary">14 Active</span>
+        </div>
+        <div class="stack" style="margin-top: 1rem;">
+          ${repositoriesData.repos
+            .map(
+              (repo) => `
+                <article class="node-card">
+                  <div class="info-row">
+                    <div>
+                      <p class="row-title">${repo.name}</p>
+                      <p class="row-subtitle">${repo.description}</p>
+                      <p class="tiny-label" style="margin-top: 0.25rem;">${repo.language} · branch: ${repo.branch} · last commit: ${repo.lastCommit}</p>
+                    </div>
+                    <span class="badge ${repo.tone}">${repo.status}</span>
+                  </div>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 12;">
+        <div class="info-row">
+          <div>
+            <p class="card-kicker">Package Registry</p>
+            <h2 class="card-title">Published Packages</h2>
+          </div>
+          <span class="badge primary">3 Packages</span>
+        </div>
+        <div class="stack" style="margin-top: 1rem;">
+          ${repositoriesData.packages
+            .map(
+              (pkg) => `
+                <article class="node-card">
+                  <div class="info-row">
+                    <div>
+                      <p class="row-title">${pkg.name}</p>
+                      <p class="row-subtitle">${pkg.registry} · ${pkg.version}</p>
+                    </div>
+                    <span class="badge ${pkg.tone}">${pkg.status}</span>
+                  </div>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderUpdates() {
+  return `
+    <div class="grid cols-12">
+      ${updatesData.releases
+        .map(
+          (release) => `
+            <section class="card" style="grid-column: span 12;">
+              <div class="info-row">
+                <div>
+                  <p class="card-kicker">${release.date}</p>
+                  <h2 class="card-title">${release.version}</h2>
+                </div>
+                <span class="badge ${release.tone}">${release.label}</span>
+              </div>
+              <ul style="margin: 0.75rem 0 0 1.2rem; color: var(--text-soft); line-height: 1.8;">
+                ${release.changes.map((change) => `<li>${change}</li>`).join("")}
+              </ul>
+            </section>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function renderScreenContent() {
   switch (currentScreen) {
     case "operations":
@@ -1000,6 +1226,10 @@ function renderScreenContent() {
       return renderIntelligence();
     case "policy":
       return renderPolicy();
+    case "repositories":
+      return renderRepositories();
+    case "updates":
+      return renderUpdates();
     default:
       return renderOverview();
   }
@@ -1472,6 +1702,10 @@ function buildSearchIndex() {
     { screen: "coordination", type: "Audit", title: "Autonomy Threshold Warning", copy: "System 1 Node A reports 12% drift from operational norms." },
     { screen: "policy", type: "Directive", title: "Viability Mandate", copy: "Prioritize systemic health over localized optimization." },
     { screen: "intelligence", type: "Signal", title: "Narrative Drift", copy: "External sentiment diverging from internal optimization assumptions." },
+    { screen: "repositories", type: "Repo", title: "sovereign-observer-os", copy: "Core dashboard and organisation design tool built on the Viable System Model." },
+    { screen: "repositories", type: "Package", title: "@sov/vsm-core", copy: "Published npm package at version 2.4.1." },
+    { screen: "updates", type: "Release", title: "v2.4.1", copy: "API key session support, wired buttons, measurement tooltips, and label fixes." },
+    { screen: "updates", type: "Release", title: "v2.4.0", copy: "Welcome screen, notifications panel, and expanded health modal." },
   ];
 }
 
@@ -1771,6 +2005,8 @@ function renderWelcomeScreen() {
           <li><strong>Control</strong> — resource allocation and bargaining surfaces</li>
           <li><strong>Intelligence</strong> — environmental signals and forecasts</li>
           <li><strong>Policy</strong> — constitutional directives and viability index</li>
+          <li><strong>Repositories</strong> — code repository and package registry</li>
+          <li><strong>Updates</strong> — deployment history and release changelog</li>
         </ul>
       </article>
 
