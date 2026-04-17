@@ -1913,3 +1913,27 @@ renderPage();
 if (!appState.hasSeenWelcome) {
   renderWelcomeScreen();
 }
+
+// Allow pure functions to be imported by the Jest test suite.
+// `module` is undefined in the browser, so this block is never reached there.
+if (typeof module !== "undefined") {
+  module.exports = {
+    metricToneClass,
+    metricTooltip,
+    metricSubtext,
+    escapeHtml,
+    findAgentCount,
+    parseBudget,
+    parseAutonomy,
+    parseDomain,
+    parseApprovals,
+    parseEscalations,
+    detectRecursion,
+    buildUnits,
+    flattenUnits,
+    buildConnections,
+    renderRecursiveTree,
+    generateSchemaFromPrompt,
+    buildSearchIndex,
+  };
+}
