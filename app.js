@@ -11,53 +11,6 @@ const screens = {
       { label: "Latency", value: "14ms", tone: "primary" },
     ],
   },
-  operations: {
-    navLabel: "Operations",
-    navIcon: "✦",
-    headerEyebrow: "System 1",
-    title: "Operations & Production",
-    description:
-      "Real-time surveillance of autonomous operational units. Monitoring output velocity against theoretical capacity limits.",
-    metrics: [
-      { label: "Global Efficiency", value: "92.4%", tone: "secondary" },
-      { label: "Active Nodes", value: "12 / 14", tone: "primary" },
-    ],
-  },
-  coordination: {
-    navLabel: "Coordination",
-    navIcon: "⇄",
-    headerEyebrow: "Strategic Command Interface",
-    title: "Coordination, Control & Intelligence",
-    description: "Internal monitoring, oscillation damping, environmental scanning, and temporal synchronization across recursive systems.",
-    metrics: [
-      { label: "Environmental Stability", value: "94.2%", tone: "secondary" },
-      { label: "Resource Efficacy", value: "88.7%", tone: "primary" },
-    ],
-  },
-  control: {
-    navLabel: "Control",
-    navIcon: "▣",
-    headerEyebrow: "System 3",
-    title: "Resource Synergy Control",
-    description:
-      "A focused control layer for allocation, audit, bargaining, and intervention across live operational nodes.",
-    metrics: [
-      { label: "Audit Closure", value: "97.1%", tone: "secondary" },
-      { label: "Variance", value: "3.2%", tone: "tertiary" },
-    ],
-  },
-  intelligence: {
-    navLabel: "Intelligence",
-    navIcon: "⋇",
-    headerEyebrow: "System 4",
-    title: "Environmental Adaptation",
-    description:
-      "Strategic sensing surfaces weak signals, market pulse, environmental volatility, and forward projection across adjacent environments.",
-    metrics: [
-      { label: "Horizon Confidence", value: "81.6%", tone: "secondary" },
-      { label: "Risk Heat", value: "Low", tone: "primary" },
-    ],
-  },
   policy: {
     navLabel: "Policy",
     navIcon: "∿",
@@ -68,30 +21,6 @@ const screens = {
     metrics: [
       { label: "Current System Ethos", value: "Resilient Evolution", tone: "secondary" },
       { label: "Viability Index", value: "94.2%", tone: "primary" },
-    ],
-  },
-  repositories: {
-    navLabel: "Repositories",
-    navIcon: "⊞",
-    headerEyebrow: "Source Registry",
-    title: "Repository Catalogue",
-    description:
-      "A centralized registry of code repositories, agent packages, and data sources connected to this recursive system.",
-    metrics: [
-      { label: "Active Repos", value: "14", tone: "secondary" },
-      { label: "Last Sync", value: "< 1 min", tone: "primary" },
-    ],
-  },
-  updates: {
-    navLabel: "Updates",
-    navIcon: "↑",
-    headerEyebrow: "Change Log",
-    title: "System Updates",
-    description:
-      "A chronological record of deployments, configuration changes, and system-level events across all recursive layers.",
-    metrics: [
-      { label: "Latest Build", value: "v2.4.1", tone: "secondary" },
-      { label: "Deploy Status", value: "Stable", tone: "primary" },
     ],
   },
 };
@@ -147,49 +76,6 @@ const overviewData = {
   ],
 };
 
-const operationsData = {
-  gauge: { value: 88, output: "4,280 OPS/S", capacity: "5,000 OPS/S" },
-  logistics: { output: "640 units/h", delta: "-12%" },
-  registry: [
-    { title: "Bio-Metric Monitoring", subtitle: "ID: UNIT-091-X", status: "Optimal", tone: "secondary", performance: 94.2, demand: "0.02%" },
-    { title: "Resource Extraction", subtitle: "ID: UNIT-442-B", status: "Pressure", tone: "tertiary", performance: 76.8, demand: "12.45%" },
-    { title: "Synapse Relay Systems", subtitle: "ID: UNIT-102-Y", status: "Optimal", tone: "secondary", performance: 91.6, demand: "0.00%" },
-    { title: "Core Integrity Leak", subtitle: "ID: UNIT-ERR-0", status: "Offline", tone: "error", performance: 0.0, demand: "100.0%" },
-  ],
-  insights: [
-    {
-      title: "Strategic Operational Insight",
-      copy: "Unit 442-B is exhibiting signs of oscillatory behavior. Recommend initiating Coordination (System 2) protocol to dampen throughput fluctuations before System 3 intervention is required.",
-    },
-    {
-      title: "Efficiency Forecast",
-      copy: "Current trajectory suggests a 4.2% increase in global productivity over the next 24 hours as relay systems achieve thermal equilibrium.",
-    },
-  ],
-};
-
-const coordinationData = {
-  bargaining: [
-    { label: "System 1: Production", used: 72, tone: "secondary" },
-    { label: "System 1: Logistics", used: 45, tone: "primary" },
-  ],
-  auditTrail: [
-    { title: "Policy Compliance Check", copy: "System 1 Node B aligned with Recursive Level 0 directives", time: "14:22:01", tone: "secondary" },
-    { title: "Autonomy Threshold Warning", copy: "System 1 Node A reports 12% drift from operational norms", time: "13:45:12", tone: "tertiary" },
-    { title: "Anti-Oscillation Cycle", copy: "System 2 protocol injected to resolve inter-unit resource conflict", time: "11:02:57", tone: "primary" },
-  ],
-  projections: [
-    { label: "Target State", value: "Optimized", copy: "Probability stable at 86%" },
-    { label: "Control Feedback Loop", value: "Active", copy: "Neural monitor consuming 8.2 GB/s" },
-  ],
-  timeline: [
-    { label: "T-Minus 4H", copy: "Operational baseline sync", active: true },
-    { label: "Current", copy: "Bargaining cycle" },
-    { label: "T-Plus 12H", copy: "System 4 scan update" },
-    { label: "T-Plus 48H", copy: "Strategic realignment" },
-    { label: "T-Plus 7D", copy: "Policy review" },
-  ],
-};
 
 const policyData = {
   directives: [
@@ -233,146 +119,6 @@ const policyData = {
   ],
 };
 
-const controlData = {
-  audits: [
-    { label: "Operational Audit", value: "Complete", tone: "secondary" },
-    { label: "Resource Allocation", value: "Balanced", tone: "primary" },
-    { label: "Intervention Thresholds", value: "Tightened", tone: "tertiary" },
-  ],
-  bargaining: [
-    { label: "Production Share", used: 64, tone: "secondary" },
-    { label: "Logistics Share", used: 37, tone: "primary" },
-    { label: "Recovery Buffer", used: 21, tone: "tertiary" },
-  ],
-};
-
-const intelligenceData = {
-  forecasts: [
-    { label: "Market Pulse", value: "+12.4%", copy: "Momentum remains constructive across monitored environments." },
-    { label: "External Stability", value: "Fluctuating", copy: "Edge volatility detected in three adjacent sectors." },
-    { label: "Risk Assessment", value: "Low", copy: "No existential threats across the current horizon." },
-  ],
-  signals: [
-    { title: "Weak Signal Detected", copy: "Recruitment pressure rising in adjacent ecosystems." },
-    { title: "Narrative Drift", copy: "External sentiment diverging from internal optimization assumptions." },
-  ],
-};
-
-const repositoriesData = {
-  repos: [
-    {
-      name: "sovereign-observer-os",
-      description: "Core dashboard and organisation design tool built on the Viable System Model.",
-      language: "JavaScript",
-      status: "Active",
-      tone: "secondary",
-      branch: "main",
-      lastCommit: "< 1 min ago",
-    },
-    {
-      name: "vsm-schema-engine",
-      description: "Rule-based and AI-enhanced schema generator for recursive agent organisations.",
-      language: "JavaScript",
-      status: "Active",
-      tone: "secondary",
-      branch: "main",
-      lastCommit: "2 h ago",
-    },
-    {
-      name: "recursive-unit-runner",
-      description: "Execution runtime for autonomous recursive operational units.",
-      language: "Python",
-      status: "Beta",
-      tone: "tertiary",
-      branch: "dev",
-      lastCommit: "1 d ago",
-    },
-    {
-      name: "coordination-daemon",
-      description: "System 2 oscillation-damping service for inter-unit conflict resolution.",
-      language: "Go",
-      status: "Stable",
-      tone: "primary",
-      branch: "main",
-      lastCommit: "3 d ago",
-    },
-    {
-      name: "intelligence-scanner",
-      description: "Environmental signal scanning and weak-signal detection for System 4.",
-      language: "Python",
-      status: "Active",
-      tone: "secondary",
-      branch: "main",
-      lastCommit: "6 h ago",
-    },
-  ],
-  packages: [
-    { name: "@sov/vsm-core", version: "2.4.1", registry: "npm", status: "Latest", tone: "secondary" },
-    { name: "@sov/schema-types", version: "1.9.0", registry: "npm", status: "Latest", tone: "secondary" },
-    { name: "sov-runner", version: "0.8.3", registry: "PyPI", status: "Pre-release", tone: "tertiary" },
-  ],
-};
-
-const updatesData = {
-  releases: [
-    {
-      version: "v2.4.1",
-      date: "2024-11-23",
-      label: "Patch",
-      tone: "secondary",
-      changes: [
-        "Added API key in-memory session support via Settings modal and Welcome screen.",
-        "Wired Bell, Gear, Manage Cluster, Export Data, Re-Sync All, and Full Node Diagnostics buttons.",
-        "Added measurement tooltips and subtext labels to all header metric cards.",
-        "Fixed damping ratio completeness display and delta column label on Operations screen.",
-      ],
-    },
-    {
-      version: "v2.4.0",
-      date: "2024-11-20",
-      label: "Minor",
-      tone: "primary",
-      changes: [
-        "Introduced Welcome screen modal with navigation guide, schema generator tutorial, and measurements glossary.",
-        "Added notifications panel with recent audit events.",
-        "Expanded health modal with full five-system diagnostic breakdown.",
-      ],
-    },
-    {
-      version: "v2.3.0",
-      date: "2024-11-10",
-      label: "Minor",
-      tone: "primary",
-      changes: [
-        "Launched recursive unit generation with parent-child delegation and peer coordination.",
-        "Added causal and systemic connection graph output to schema generator.",
-        "Introduced Global Search surface across nodes, signals, and directives.",
-      ],
-    },
-    {
-      version: "v2.2.0",
-      date: "2024-10-28",
-      label: "Minor",
-      tone: "primary",
-      changes: [
-        "Policy screen with constitutional directives, viability scorecards, and horizon planning.",
-        "Intelligence screen with market pulse, risk assessment, and weak signal board.",
-        "Temporal synchronization timeline added to Coordination screen.",
-      ],
-    },
-    {
-      version: "v2.0.0",
-      date: "2024-10-01",
-      label: "Major",
-      tone: "tertiary",
-      changes: [
-        "Initial public release of Sovereign Observer OS.",
-        "Full five-system VSM dashboard: Operations, Coordination, Control, Intelligence, Policy.",
-        "Natural-language schema generator with domain detection and autonomy inference.",
-      ],
-    },
-  ],
-};
 
 const designState = {
   prompt:
@@ -383,7 +129,6 @@ const designState = {
 const appState = {
   apiKey: "",
   hasSeenWelcome: localStorage.getItem("sov_welcomed") === "true",
-  syncStatus: "idle",
 };
 
 const sideNav = document.querySelector("#sideNav");
@@ -553,7 +298,6 @@ function renderOverview() {
             <p class="card-kicker">System 1: Operations</p>
             <h2 class="card-title">Active Primary Nodes</h2>
           </div>
-          <button class="ghost-button" id="manageClusterButton">Manage Cluster</button>
         </div>
         <div class="node-list" style="margin-top: 1rem;">
           ${overviewData.nodes
@@ -601,7 +345,7 @@ function renderOverview() {
             <textarea id="designPromptInput" class="prompt-input" rows="5" placeholder="Design a lean 8-agent consulting organization with strong audit, low spend, and weekly strategic review.">${designState.prompt}</textarea>
           </label>
           <div class="split-actions">
-            <button id="generateSchemaButton" class="cta-button">Generate Schema</button>
+            <button id="generateSchemaButton" class="cta-button">${appState.apiKey ? "Generate with AI" : "Generate (rule-based)"}</button>
             <button class="ghost-button schema-hint" data-prompt="Create a product, operations, intelligence, and audit structure for an AI SaaS company with moderate autonomy and strict deployment approvals.">AI SaaS</button>
             <button class="ghost-button schema-hint" data-prompt="Design a 10-agent university crisis communications organization with legal review, coordination control, and human approval on public statements.">Crisis comms</button>
             <button class="ghost-button schema-hint" data-prompt="Set up a lean consulting mesh with delivery, audit, finance, and strategy units, low budget, and weekly executive review.">Consulting mesh</button>
@@ -706,242 +450,6 @@ function renderOverview() {
         <pre class="schema-code">${designState.schema ? escapeHtml(JSON.stringify(designState.schema, null, 2)) : "{\n  \"status\": \"awaiting-input\"\n}"}</pre>
       </section>
     </div>
-
-    <div class="dock">
-      <div class="dock-item"><span class="live-dot"></span><strong>System Live</strong></div>
-      <button class="dock-item dock-action" data-dock="terminal">Terminal</button>
-      <button class="dock-item dock-action" data-dock="security">Security</button>
-      <button class="dock-item dock-action" data-dock="logs">Logs</button>
-    </div>
-  `;
-}
-
-function renderOperations() {
-  return `
-    <div class="grid cols-12">
-      <section class="card" style="grid-column: span 8;">
-        <div class="info-row">
-          <div>
-            <h2 class="section-title">Neural Processing Core</h2>
-            <p class="subtle-text">Primary Operational Unit Alpha</p>
-          </div>
-          <span class="badge secondary">Stable</span>
-        </div>
-        <div class="grid" style="grid-template-columns: 11rem 1fr; align-items:center; margin-top: 1rem;">
-          <div class="gauge-shell">
-            <div class="gauge-inner">
-              <div>
-                <strong>${operationsData.gauge.value}%</strong>
-                <span class="tiny-label">Utilization</span>
-              </div>
-            </div>
-          </div>
-          <div class="stack">
-            <div>
-              <div class="status-row">
-                <span>Current Output</span>
-                <strong title="Operations Per Second — tasks completed every second">${operationsData.gauge.output} <span class="measure-note">(ops/sec)</span></strong>
-              </div>
-              <div class="bar-track"><div class="bar-fill secondary" style="width:${operationsData.gauge.value}%"></div></div>
-            </div>
-            <div>
-              <div class="status-row">
-                <span>Theoretical Capacity</span>
-                <strong title="Maximum possible output at 100% utilization">${operationsData.gauge.capacity} <span class="measure-note">(ops/sec max)</span></strong>
-              </div>
-              <div class="bar-track"><div class="bar-fill primary" style="width:100%; opacity:0.2;"></div></div>
-            </div>
-            <button class="soft-button" id="fullNodeDiagnosticsButton" style="justify-self:start;">Full Node Diagnostics</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="card policy" style="grid-column: span 4;">
-        <div class="info-row">
-          <div>
-            <p class="card-kicker">Logistics</p>
-            <h2 class="section-title">Logistics Flux</h2>
-          </div>
-          <span class="badge tertiary">Adaptation Req</span>
-        </div>
-        <p class="subtle-text">Internal distribution channel latency increasing.</p>
-        <div class="mini-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-          <article class="mini-stat">
-            <p class="mini-label">Output</p>
-            <p class="mini-value">${operationsData.logistics.output}</p>
-            <p class="measure-note">processed units per hour</p>
-          </article>
-          <article class="mini-stat">
-            <p class="mini-label">Change vs. Prior Cycle</p>
-            <p class="mini-value" style="color: var(--tertiary);">${operationsData.logistics.delta}</p>
-            <p class="measure-note">throughput growth rate</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="table-shell" style="grid-column: span 12;">
-        <div class="info-row" style="padding: 1.1rem;">
-          <h2 class="section-title">Operational Units Registry</h2>
-          <div class="registry-actions">
-            <button class="ghost-button" id="exportDataButton">Export Data</button>
-            <button class="cta-button" id="resyncAllButton">${appState.syncStatus === "syncing" ? "Syncing…" : "Re-Sync All"}</button>
-          </div>
-        </div>
-        <div class="table-head">
-          <span>System Node</span>
-          <span>Status</span>
-          <span title="Current output as a percentage of maximum capacity">Performance / Capacity</span>
-          <span title="Unmet workload waiting to be processed — high values signal bottlenecks">Latent Demand</span>
-          <span>Detail</span>
-        </div>
-        <div class="table-body">
-          ${operationsData.registry
-            .map(
-              (row, index) => `
-                <article class="registry-row">
-                  <div>
-                    <p class="row-title">${row.title}</p>
-                    <p class="row-subtitle">${row.subtitle}</p>
-                  </div>
-                  <div><span class="badge ${row.tone}">${row.status}</span></div>
-                  <div>
-                    <div class="status-row"><span>${row.performance.toFixed(1)}% of capacity</span></div>
-                    <div class="spark-line"><span style="width:${row.performance}%"></span></div>
-                  </div>
-                  <div title="Unmet demand waiting to be processed">${row.demand}</div>
-                  <div><button class="icon-button row-detail-button" data-row="${index}" title="View unit details" style="font-size:1.1rem;">↗</button></div>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="insight-grid" style="grid-column: span 12; grid-template-columns: repeat(2, minmax(0, 1fr));">
-        ${operationsData.insights
-          .map(
-            (insight, index) => `
-              <article class="insight-card" style="${index === 0 ? "background: rgba(0, 76, 86, 0.15);" : ""}">
-                <h2 class="section-title">${insight.title}</h2>
-                <p class="subtle-text">${insight.copy}</p>
-              </article>
-            `
-          )
-          .join("")}
-      </section>
-    </div>
-  `;
-}
-
-function renderCoordination() {
-  return `
-    <div class="grid cols-12">
-      <section class="card" style="grid-column: span 7;">
-        <div class="info-row">
-          <h2 class="section-title">Internal Monitoring Hub (System 2 & 3)</h2>
-          <span class="badge primary">Live Control</span>
-        </div>
-        <div class="mini-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem;">
-          <article class="mini-stat">
-            <p class="mini-label">Resource Bargaining</p>
-            <h3 class="section-title">Operational Allotment</h3>
-            <div class="stack" style="margin-top: 0.75rem;">
-              ${coordinationData.bargaining
-                .map(
-                  (item) => `
-                    <div>
-                      <div class="status-row">
-                        <span>${item.label}</span>
-                        <strong>Used: ${item.used}%</strong>
-                      </div>
-                      <div class="bar-track"><div class="bar-fill ${item.tone}" style="width:${item.used}%"></div></div>
-                    </div>
-                  `
-                )
-                .join("")}
-            </div>
-          </article>
-          <article class="mini-stat">
-            <p class="mini-label">Coordination Logic</p>
-            <h3 class="section-title">Oscillation Control</h3>
-            <div style="height: 5rem; display:grid; place-items:center; color: var(--tertiary); font-family:'Space Grotesk', sans-serif;">
-              ~~~ ∿ ~~~
-            </div>
-            <p class="tiny-label" style="color: var(--tertiary);">Damping Ratio: 0.84 <span style="text-transform:none; letter-spacing:0;">(mild oscillation; 1.0 = ideal)</span></p>
-          </article>
-        </div>
-        <div class="audit-list" style="margin-top: 1rem;">
-          <p class="card-kicker">Control Audit Trail</p>
-          ${coordinationData.auditTrail
-            .map(
-              (item) => `
-                <article class="audit-item">
-                  <div class="info-row">
-                    <div>
-                      <p class="row-title">${item.title}</p>
-                      <p class="row-subtitle">${item.copy}</p>
-                    </div>
-                    <div style="text-align:right;">
-                      <span class="badge ${item.tone}">${item.time}</span>
-                    </div>
-                  </div>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="card policy" style="grid-column: span 5;">
-        <div class="info-row">
-          <div>
-            <h2 class="section-title">Intelligence Hub (System 4)</h2>
-            <p class="subtle-text">Adaptation layer with forward projection.</p>
-          </div>
-          <span class="badge tertiary">Horizon 2025</span>
-        </div>
-        <div class="floating-panel" style="margin-top: 1rem; padding: 1.2rem; background: rgba(255,255,255,0.03); border-radius: var(--radius-lg); min-height: 18rem; position: relative;">
-          <div style="position:absolute; inset: 1rem; border: 1px solid rgba(255,255,255,0.06);"></div>
-          <div style="position:absolute; inset: 50% auto auto 1rem; right: 1rem; height: 1px; background: rgba(255,255,255,0.06);"></div>
-          <div style="position:absolute; left: 50%; top: 1rem; bottom: 1rem; width: 1px; background: rgba(255,255,255,0.06);"></div>
-          <div style="position:absolute; left: 20%; top: 34%; width: 0.65rem; height: 0.65rem; border-radius:999px; background: var(--tertiary); box-shadow: 0 0 18px rgba(255,186,39,0.45);"></div>
-          <div style="position:absolute; left: 44%; top: 57%; width: 0.45rem; height: 0.45rem; border-radius:999px; background: var(--secondary); box-shadow: 0 0 12px rgba(149,212,179,0.45);"></div>
-          <div style="position:absolute; right: 1.5rem; bottom: 2.3rem; text-align:right;">
-            <p class="card-kicker">System 4</p>
-            <h3 class="card-title">Adaptation Layer</h3>
-          </div>
-        </div>
-        <div class="forecast-list" style="margin-top: 1rem;">
-          ${coordinationData.projections
-            .map(
-              (item) => `
-                <article class="forecast-card">
-                  <p class="mini-label">${item.label}</p>
-                  <p class="mini-value">${item.value}</p>
-                  <p class="subtle-text">${item.copy}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="card" style="grid-column: span 12;">
-        <h2 class="section-title">System Temporal Synchronization</h2>
-        <div class="temporal-line">
-          ${coordinationData.timeline
-            .map(
-              (step) => `
-                <article class="timeline-step ${step.active ? "active" : ""}">
-                  <p class="mini-label">${step.label}</p>
-                  <p class="subtle-text">${step.copy}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-    </div>
   `;
 }
 
@@ -1035,201 +543,10 @@ function renderPolicy() {
   `;
 }
 
-function renderControl() {
-  return `
-    <div class="grid cols-12">
-      <section class="card" style="grid-column: span 7;">
-        <div class="info-row">
-          <div>
-            <p class="card-kicker">System 3 · Control</p>
-            <h2 class="card-title">Resource Synergy</h2>
-          </div>
-          <span class="badge primary">Balanced</span>
-        </div>
-        <div class="stack" style="margin-top: 1rem;">
-          ${controlData.audits
-            .map(
-              (item) => `
-                <article class="node-card">
-                  <p class="row-title">${item.label}</p>
-                  <span class="badge ${item.tone}">${item.value}</span>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="card" style="grid-column: span 5;">
-        <p class="card-kicker">Operational Bargaining</p>
-        <h2 class="card-title">Allocation Surface</h2>
-        <div class="stack" style="margin-top: 1rem;">
-          ${controlData.bargaining
-            .map(
-              (item) => `
-                <div>
-                  <div class="status-row">
-                    <span>${item.label}</span>
-                    <strong>${item.used}%</strong>
-                  </div>
-                  <div class="bar-track"><div class="bar-fill ${item.tone}" style="width:${item.used}%"></div></div>
-                </div>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-    </div>
-  `;
-}
-
-function renderIntelligence() {
-  return `
-    <div class="grid cols-12">
-      <section class="card intelligence" style="grid-column: span 8;">
-        <div class="info-row">
-          <div>
-            <p class="card-kicker">System 4 · Intelligence</p>
-            <h2 class="card-title">Environmental Adaptation</h2>
-          </div>
-          <span class="badge secondary">Nominal Scan</span>
-        </div>
-        <div class="mini-grid">
-          ${intelligenceData.forecasts
-            .map(
-              (item) => `
-                <article class="mini-stat">
-                  <p class="mini-label">${item.label}</p>
-                  <p class="mini-value">${item.value}</p>
-                  <p class="subtle-text">${item.copy}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="card" style="grid-column: span 4;">
-        <p class="card-kicker">Weak Signal Board</p>
-        <div class="stack" style="margin-top: 1rem;">
-          ${intelligenceData.signals
-            .map(
-              (signal) => `
-                <article class="forecast-card">
-                  <h2 class="section-title">${signal.title}</h2>
-                  <p class="subtle-text">${signal.copy}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-    </div>
-  `;
-}
-
-function renderRepositories() {
-  return `
-    <div class="grid cols-12">
-      <section class="card" style="grid-column: span 12;">
-        <div class="info-row">
-          <div>
-            <p class="card-kicker">Source Control</p>
-            <h2 class="card-title">Code Repositories</h2>
-          </div>
-          <span class="badge secondary">14 Active</span>
-        </div>
-        <div class="stack" style="margin-top: 1rem;">
-          ${repositoriesData.repos
-            .map(
-              (repo) => `
-                <article class="node-card">
-                  <div class="info-row">
-                    <div>
-                      <p class="row-title">${repo.name}</p>
-                      <p class="row-subtitle">${repo.description}</p>
-                      <p class="tiny-label" style="margin-top: 0.25rem;">${repo.language} · branch: ${repo.branch} · last commit: ${repo.lastCommit}</p>
-                    </div>
-                    <span class="badge ${repo.tone}">${repo.status}</span>
-                  </div>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="card" style="grid-column: span 12;">
-        <div class="info-row">
-          <div>
-            <p class="card-kicker">Package Registry</p>
-            <h2 class="card-title">Published Packages</h2>
-          </div>
-          <span class="badge primary">3 Packages</span>
-        </div>
-        <div class="stack" style="margin-top: 1rem;">
-          ${repositoriesData.packages
-            .map(
-              (pkg) => `
-                <article class="node-card">
-                  <div class="info-row">
-                    <div>
-                      <p class="row-title">${pkg.name}</p>
-                      <p class="row-subtitle">${pkg.registry} · ${pkg.version}</p>
-                    </div>
-                    <span class="badge ${pkg.tone}">${pkg.status}</span>
-                  </div>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-    </div>
-  `;
-}
-
-function renderUpdates() {
-  return `
-    <div class="grid cols-12">
-      ${updatesData.releases
-        .map(
-          (release) => `
-            <section class="card" style="grid-column: span 12;">
-              <div class="info-row">
-                <div>
-                  <p class="card-kicker">${release.date}</p>
-                  <h2 class="card-title">${release.version}</h2>
-                </div>
-                <span class="badge ${release.tone}">${release.label}</span>
-              </div>
-              <ul style="margin: 0.75rem 0 0 1.2rem; color: var(--text-soft); line-height: 1.8;">
-                ${release.changes.map((change) => `<li>${change}</li>`).join("")}
-              </ul>
-            </section>
-          `
-        )
-        .join("")}
-    </div>
-  `;
-}
-
 function renderScreenContent() {
   switch (currentScreen) {
-    case "operations":
-      return renderOperations();
-    case "coordination":
-      return renderCoordination();
-    case "control":
-      return renderControl();
-    case "intelligence":
-      return renderIntelligence();
     case "policy":
       return renderPolicy();
-    case "repositories":
-      return renderRepositories();
-    case "updates":
-      return renderUpdates();
     default:
       return renderOverview();
   }
@@ -1557,7 +874,7 @@ function renderRecursiveTree(units) {
     .join("");
 }
 
-function generateSchemaFromPrompt(rawPrompt) {
+function buildRuleBasedSchema(rawPrompt) {
   const prompt = rawPrompt.trim().toLowerCase();
   const domain = parseDomain(prompt);
   const agentCount = findAgentCount(prompt);
@@ -1597,12 +914,81 @@ function generateSchemaFromPrompt(rawPrompt) {
   };
 }
 
+async function generateSchemaFromPrompt(rawPrompt) {
+  if (!appState.apiKey) {
+    return buildRuleBasedSchema(rawPrompt);
+  }
+
+  const systemPrompt = `You are an organisational schema generator based on Stafford Beer's Viable System Model (VSM).
+Given a natural-language mission prompt, return ONLY a JSON object with this exact shape (no markdown fences):
+{
+  "name": "string — organisation name",
+  "domain": "string — domain label (e.g. Crisis Response, AI SaaS, Consulting)",
+  "mission": "string — the original prompt",
+  "agentCount": number,
+  "systems": ["S1","S2","S3","S4","S5"],
+  "budget": { "profile": "Lean|Balanced|Expansive", "monthlyUsd": number, "tokenPolicy": "string" },
+  "autonomy": { "mode": "Constrained|Moderate|Expansive", "escalationBias": "string" },
+  "approvals": ["string"],
+  "escalationChain": ["string"],
+  "recursion": { "enabled": boolean, "depth": number, "branchingFactor": number },
+  "connections": [{ "from": "id", "to": "id", "fromName": "string", "toName": "string", "fromSystem": "string", "toSystem": "string", "mode": "causal|systemic", "reason": "string", "strength": "low|medium|high" }],
+  "connectionCount": number,
+  "units": [{ "id": "unit-1", "name": "string", "system": "S1|S2|S3|S3*|S4|S5", "tone": "primary|secondary|tertiary", "responsibilities": ["string"], "allocatedAgents": number, "recursionLevel": 1, "children": [] }],
+  "unitCount": number,
+  "generatedAt": "ISO8601 timestamp",
+  "warnings": ["string"]
+}
+Respond with only valid JSON. No explanation, no markdown.`;
+
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${appState.apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: rawPrompt.trim() },
+        ],
+        temperature: 0.4,
+        max_tokens: 2048,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`OpenAI API error ${response.status}`);
+    }
+
+    const data = await response.json();
+    const text = data.choices?.[0]?.message?.content?.trim();
+    if (!text) throw new Error("Empty response from OpenAI");
+
+    const schema = JSON.parse(text);
+
+    if (!schema.name || !Array.isArray(schema.units) || !Array.isArray(schema.connections)) {
+      throw new Error("Invalid schema shape returned by AI");
+    }
+
+    schema.generatedAt = new Date().toISOString();
+    schema.mission = rawPrompt.trim();
+    return schema;
+  } catch (err) {
+    console.warn("AI generation failed, falling back to rule-based engine:", err.message);
+    const fallback = buildRuleBasedSchema(rawPrompt);
+    fallback.warnings = [`AI generation failed (${err.message}). Showing rule-based result.`, ...fallback.warnings];
+    return fallback;
+  }
+}
+
 function attachScreenInteractions() {
   if (currentScreen === "overview") {
     const promptInput = document.querySelector("#designPromptInput");
     const generateButton = document.querySelector("#generateSchemaButton");
     const hintButtons = document.querySelectorAll(".schema-hint");
-    const manageClusterButton = document.querySelector("#manageClusterButton");
 
     if (promptInput) {
       promptInput.addEventListener("input", (event) => {
@@ -1610,86 +996,29 @@ function attachScreenInteractions() {
       });
     }
 
+    async function runGenerator(prompt) {
+      if (generateButton) {
+        generateButton.disabled = true;
+        generateButton.textContent = "Generating…";
+      }
+      try {
+        designState.schema = await generateSchemaFromPrompt(prompt);
+      } finally {
+        renderPage();
+      }
+    }
+
     if (generateButton) {
       generateButton.addEventListener("click", () => {
         designState.prompt = promptInput.value;
-        designState.schema = generateSchemaFromPrompt(designState.prompt);
-        renderPage();
+        runGenerator(designState.prompt);
       });
     }
 
     hintButtons.forEach((button) => {
       button.addEventListener("click", () => {
         designState.prompt = button.dataset.prompt || designState.prompt;
-        designState.schema = generateSchemaFromPrompt(designState.prompt);
-        renderPage();
-      });
-    });
-
-    if (manageClusterButton) {
-      manageClusterButton.addEventListener("click", () => {
-        currentScreen = "operations";
-        renderPage();
-      });
-    }
-
-    document.querySelectorAll(".dock-action").forEach((button) => {
-      button.addEventListener("click", () => {
-        const type = button.dataset.dock;
-        openDockPanel(type);
-      });
-    });
-  }
-
-  if (currentScreen === "operations") {
-    const exportButton = document.querySelector("#exportDataButton");
-    const resyncButton = document.querySelector("#resyncAllButton");
-    const diagnosticsButton = document.querySelector("#fullNodeDiagnosticsButton");
-
-    if (exportButton) {
-      exportButton.addEventListener("click", () => {
-        const data = JSON.stringify(operationsData.registry, null, 2);
-        const blob = new Blob([data], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "operational-units-registry.json";
-        link.click();
-        URL.revokeObjectURL(url);
-      });
-    }
-
-    if (resyncButton) {
-      resyncButton.addEventListener("click", () => {
-        appState.syncStatus = "syncing";
-        renderPage();
-        setTimeout(() => {
-          appState.syncStatus = "idle";
-          renderPage();
-        }, 1800);
-      });
-    }
-
-    if (diagnosticsButton) {
-      diagnosticsButton.addEventListener("click", openHealthModal);
-    }
-
-    document.querySelectorAll(".row-detail-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        const index = Number(button.dataset.row);
-        const row = operationsData.registry[index];
-        if (!row) return;
-        openInfoModal(
-          "Unit Detail",
-          row.title,
-          `<article class="diagnostic-card">
-            <h3>${row.title}</h3>
-            <p><strong>ID:</strong> ${row.subtitle}</p>
-            <p><strong>Status:</strong> <span class="badge ${row.tone}">${row.status}</span></p>
-            <p><strong>Performance:</strong> ${row.performance.toFixed(1)}% of rated capacity</p>
-            <p><strong>Latent Demand:</strong> ${row.demand} — the share of unmet workload queued and waiting to be processed. Values above 5% indicate a potential bottleneck.</p>
-          </article>`
-        );
+        runGenerator(designState.prompt);
       });
     });
   }
@@ -1698,14 +1027,8 @@ function attachScreenInteractions() {
 function buildSearchIndex() {
   return [
     { screen: "overview", type: "Node", title: "Alpha-Core Protocol", copy: "Processing recursive data streams for regional nodes." },
-    { screen: "operations", type: "Unit", title: "Resource Extraction", copy: "Operational unit 442-B is showing pressure and rising latent demand." },
-    { screen: "coordination", type: "Audit", title: "Autonomy Threshold Warning", copy: "System 1 Node A reports 12% drift from operational norms." },
     { screen: "policy", type: "Directive", title: "Viability Mandate", copy: "Prioritize systemic health over localized optimization." },
-    { screen: "intelligence", type: "Signal", title: "Narrative Drift", copy: "External sentiment diverging from internal optimization assumptions." },
-    { screen: "repositories", type: "Repo", title: "sovereign-observer-os", copy: "Core dashboard and organisation design tool built on the Viable System Model." },
-    { screen: "repositories", type: "Package", title: "@sov/vsm-core", copy: "Published npm package at version 2.4.1." },
-    { screen: "updates", type: "Release", title: "v2.4.1", copy: "API key session support, wired buttons, measurement tooltips, and label fixes." },
-    { screen: "updates", type: "Release", title: "v2.4.0", copy: "Welcome screen, notifications panel, and expanded health modal." },
+    { screen: "policy", type: "Directive", title: "Identity Persistence", copy: "Maintaining core architectural integrity across all recursive layers." },
   ];
 }
 
@@ -1814,12 +1137,14 @@ function wireSettingsModal() {
   saveButton?.addEventListener("click", () => {
     appState.apiKey = apiKeyInput.value.trim();
     statusLabel.textContent = appState.apiKey ? "✓ Key active for this session" : "No key entered";
+    renderPage();
   });
 
   clearButton?.addEventListener("click", () => {
     appState.apiKey = "";
     apiKeyInput.value = "";
     statusLabel.textContent = "Key cleared for this session";
+    renderPage();
   });
 }
 
@@ -1872,63 +1197,6 @@ function closeInfoModal() {
   infoModal.classList.add("hidden");
 }
 
-function openDockPanel(type) {
-  const panels = {
-    terminal: {
-      eyebrow: "System Console",
-      title: "Terminal",
-      html: `<article class="diagnostic-card">
-        <h3>Command Interface</h3>
-        <p>The terminal provides a direct command channel to the Recursive Level 0 coordination layer. Use it to issue low-level diagnostics, trigger manual sync cycles, or inspect live data streams.</p>
-        <pre class="schema-code">$ sov status --all
-System 1 (Operations) ...... NOMINAL
-System 2 (Coordination) .... NOMINAL
-System 3 (Control) ......... NOMINAL
-System 4 (Intelligence) .... NOMINAL
-System 5 (Policy) .......... NOMINAL
-Viability Index: 94.2%</pre>
-      </article>`,
-    },
-    security: {
-      eyebrow: "Access Control",
-      title: "Security",
-      html: `<article class="diagnostic-card">
-        <h3>Security Status</h3>
-        <p>All channels encrypted. No anomalous access patterns detected in the last 24 observation cycles.</p>
-      </article>
-      <article class="diagnostic-card">
-        <h3>API Key</h3>
-        <p>${appState.apiKey ? "✓ An API key is active for this session. It is held in-memory only and will be cleared when you close this tab." : "No API key is configured. Open Settings (⚙) to add one for this session."}</p>
-      </article>
-      <article class="diagnostic-card">
-        <h3>Policy Authenticator</h3>
-        <p>Sig 0xBF22…DE81 — verified against Recursive Level 0 identity anchor.</p>
-      </article>`,
-    },
-    logs: {
-      eyebrow: "Audit Stream",
-      title: "Logs",
-      html: `<article class="diagnostic-card">
-        <h3>Recent Audit Trail</h3>
-        <div class="stack" style="margin-top: 0.5rem;">
-          ${coordinationData.auditTrail.map((item) => `
-            <div class="info-row">
-              <div>
-                <p class="row-title" style="margin:0;">${item.title}</p>
-                <p class="row-subtitle">${item.copy}</p>
-              </div>
-              <span class="badge ${item.tone}">${item.time}</span>
-            </div>
-          `).join("")}
-        </div>
-      </article>`,
-    },
-  };
-
-  const panel = panels[type];
-  if (panel) openInfoModal(panel.eyebrow, panel.title, panel.html);
-}
-
 function openDocumentationModal() {
   openInfoModal("Reference", "Documentation", `
     <article class="diagnostic-card">
@@ -1945,12 +1213,12 @@ function openDocumentationModal() {
     <article class="diagnostic-card">
       <h3>How to Use</h3>
       <ul style="margin: 0.5rem 0 0 1.2rem; color: var(--text-soft); line-height: 1.8;">
-        <li>Use the <strong>sidebar</strong> or <strong>top navigation</strong> to move between screens.</li>
-        <li>On the <strong>Overview</strong> screen, type a mission prompt and click <strong>Generate Schema</strong> to design a new agent organisation.</li>
+        <li>Use the <strong>sidebar</strong> or <strong>top navigation</strong> to switch between <strong>Overview</strong> and <strong>Policy</strong>.</li>
+        <li>On the <strong>Overview</strong> screen, type a mission prompt and click <strong>Generate (rule-based)</strong> or <strong>Generate with AI</strong> to design a new agent organisation.</li>
         <li>Click a preset button (AI SaaS, Crisis comms, Consulting mesh) to load an example prompt.</li>
-        <li>Open <strong>Settings</strong> (⚙ icon) to enter your OpenAI API key for AI-enhanced generation.</li>
+        <li>Open <strong>Settings</strong> (⚙ icon) to enter your OpenAI API key — once set, the generator calls the OpenAI API directly.</li>
         <li>Use <strong>System Health Check</strong> in the sidebar to view a full diagnostic report.</li>
-        <li>Use the <strong>Global Search</strong> bar to find specific nodes, signals, or directives.</li>
+        <li>Use the <strong>Global Search</strong> bar to find specific nodes or directives.</li>
       </ul>
     </article>
     <article class="diagnostic-card">
@@ -1978,9 +1246,9 @@ function openSupportModal() {
       <h3>Quick Tips</h3>
       <ul style="margin: 0.5rem 0 0 1.2rem; color: var(--text-soft); line-height: 1.8;">
         <li>Press <strong>Esc</strong> to close any open panel or modal.</li>
-        <li>The <strong>Generate Schema</strong> button works without an API key — a built-in rule-based engine is always available.</li>
+        <li>The generator always works without an API key — a built-in rule-based engine is available offline.</li>
+        <li>Add your OpenAI key via the <strong>⚙ Settings</strong> icon to switch to AI-powered generation.</li>
         <li>Hover over any metric card in the header to see a tooltip explaining what it measures.</li>
-        <li>Use the <strong>Export Data</strong> button on the Operations screen to download the unit registry as JSON.</li>
       </ul>
     </article>
   `);
@@ -2000,19 +1268,13 @@ function renderWelcomeScreen() {
         <p>Use the <strong>sidebar</strong> on the left or the <strong>top navigation</strong> to switch between screens:</p>
         <ul style="margin: 0.5rem 0 0 1.2rem; color: var(--text-soft); line-height: 1.8;">
           <li><strong>Overview</strong> — high-level health snapshot + schema generator</li>
-          <li><strong>Operations</strong> — live node monitoring and unit registry</li>
-          <li><strong>Coordination</strong> — oscillation damping and control audit trail</li>
-          <li><strong>Control</strong> — resource allocation and bargaining surfaces</li>
-          <li><strong>Intelligence</strong> — environmental signals and forecasts</li>
           <li><strong>Policy</strong> — constitutional directives and viability index</li>
-          <li><strong>Repositories</strong> — code repository and package registry</li>
-          <li><strong>Updates</strong> — deployment history and release changelog</li>
         </ul>
       </article>
 
       <article class="diagnostic-card">
         <h3>🤖 Generate an Organisation Schema</h3>
-        <p>Go to <strong>Overview</strong>, type a mission description in the prompt box, and click <strong>Generate Schema</strong>. The tool will design a viable agent organisation based on your description — no API key required. Use the preset buttons for instant examples.</p>
+        <p>Go to <strong>Overview</strong>, type a mission description in the prompt box, and click <strong>Generate (rule-based)</strong>. The tool will design a viable agent organisation based on your description — no API key required. Add an OpenAI key below to switch to AI-powered generation. Use the preset buttons for instant examples.</p>
       </article>
 
       <article class="diagnostic-card">
@@ -2143,7 +1405,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-designState.schema = generateSchemaFromPrompt(designState.prompt);
+designState.schema = buildRuleBasedSchema(designState.prompt);
 renderPage();
 
 if (!appState.hasSeenWelcome) {
